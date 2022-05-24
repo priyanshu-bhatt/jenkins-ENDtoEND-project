@@ -91,6 +91,11 @@ pipeline {
             }
             
         }
+        stage('email') {
+            steps {
+                mail bcc: '', body: 'Good job', cc: '', from: '', replyTo: '', subject: 'Hello Priyanshu This is Test', to: 'priyanshubhatt1892001@gmail.com'
+            }
+        }
     }
     
 }
