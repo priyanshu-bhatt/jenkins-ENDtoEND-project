@@ -1,0 +1,22 @@
+# apache.yml
+---
+- hosts: webservers 
+  become: True
+  tasks:
+    - name: Install packages
+      apt:
+        name: "nginx"
+        state: "present"
+    - name: Start nginx server
+      service:
+        name: nginx
+        state: started
+        enabled: True
+    - name: Deploy static website
+      copy:
+        src: index.html # We have define a html page 
+        dest: /var/www/html/
+...
+# We will install nginx and run the service then we will replace our own html oage with default page. 
+
+# this is the inventory file for remote server where we want to install nginxi
